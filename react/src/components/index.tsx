@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TodoList } from "./todo-list";
+import { TodoEntry } from "./todo-entry";
 import { TodoRepository, Todo } from "../../../lib";
 
 interface AppProps {
@@ -8,6 +9,7 @@ interface AppProps {
 
 interface AppState {
     todos: Todo[];
+    newTitle: string;
 }
 
 function replace<T>(ts: T[], t: T, comp: (a: T, b: T) => boolean): T[] {
@@ -33,12 +35,31 @@ export class App extends React.Component<AppProps, AppState> {
         });
 
         this.state = {
-            todos: []
+            todos: [],
+            newTitle: ""
         };
     }
 
     public render() {
-        return <TodoList todos={this.state.todos} onTodoDoneClick={t => this.onTodoDoneClick(t)} />;
+        return (
+            <div>
+                <TodoList
+                    todos={this.state.todos}
+                    onTodoDoneClick={t => this.onTodoDoneClick(t)} />
+                <TodoEntry
+                    title={this.state.newTitle}
+                    onSubmit={() => this.onNewTodoSubmit()} 
+                    onTitleChange={t => this.onTitleChange(t)}/>
+            </div>
+        );
+    }
+
+    private onTitleChange(value: string) {
+        this.setState({ newTitle: value });
+    }
+
+    private onNewTodoSubmit() {
+        this.setState({ newTitle: "" });
     }
 
     private onTodoDoneClick(t: Todo) {
