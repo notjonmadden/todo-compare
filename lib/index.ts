@@ -42,7 +42,7 @@ export class TodoRepository {
     }
 
     public add(title: string): Promise<Todo> {
-        const nextId = max(this.todos, t => t.id);
+        const nextId = max(this.todos, t => t.id) + 1;
         const todo = { done: false, title: title, id: nextId };
         
         this.todos.push(todo);
