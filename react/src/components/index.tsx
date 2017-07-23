@@ -59,7 +59,11 @@ export class App extends React.Component<AppProps, AppState> {
     }
 
     private onNewTodoSubmit() {
-        this.setState({ newTitle: "" });
+        this.props.todoRepository.add(this.state.newTitle)
+            .then(t => this.setState({
+                newTitle: "",
+                todos: [...this.state.todos, t]
+            }));
     }
 
     private onTodoDoneClick(t: Todo) {
