@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
+    "watch": "rollup -cw",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -20,6 +21,7 @@
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-typescript": "^0.8.1",
-    "rollup-plugin-typescript2": "^0.4.6"
+    "rollup-plugin-typescript2": "^0.4.6",
+    "rollup-watch": "^4.3.1"
   }
 }
