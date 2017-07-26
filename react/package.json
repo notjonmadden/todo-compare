@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
+    "build-production": "rollup -c rollup.config.production.js",
     "watch": "rollup -cw",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-plugin-typescript2": "^0.4.6",
+    "rollup-plugin-uglify": "^2.0.1",
     "rollup-watch": "^4.3.1"
   }
 }
