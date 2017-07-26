@@ -8,6 +8,7 @@ function Clean-Folder
     
     cd $Path
     rm bundle.js
+    rm bundle.min.js
     rm ./src/index.js
     rm ./src/components/*.js
 
